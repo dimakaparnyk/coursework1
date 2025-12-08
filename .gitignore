@@ -1,0 +1,10 @@
+repository/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.db
+code_base.db
+.vscode/
+.idea/
