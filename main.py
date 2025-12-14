@@ -1,19 +1,20 @@
-# main.py
 import sys
 import os
 from PyQt5.QtWidgets import QApplication
 
+# Додаємо кореневу папку в шлях пошуку модулів, щоб Python бачив пакет 'app'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from app.gui.main_window import MainWindow
-from app.gui.themes import apply_dark_theme
 
 def main():
+    """
+    Точка входу в програму CodeAnalyzer.
+    """
     app = QApplication(sys.argv)
+    app.setApplicationName("CodeAnalyzer")
     
-    # Стартуємо з темною темою
-    apply_dark_theme(app)
-    
+    # Запуск головного вікна
     window = MainWindow()
     window.show()
     

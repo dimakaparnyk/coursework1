@@ -1,229 +1,128 @@
-# app/gui/styles.py
-
-# === ТЕМНА ТЕМА (MODERN DARK) ===
-DARK_THEME = """
-/* Загальний фон */
+APP_THEME = """
+/* 1. Глобальні налаштування */
 QMainWindow, QWidget {
-    background-color: #1e1e1e;
-    color: #cccccc;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 14px;
-}
-
-/* Сайдбар і списки (Дерево, Результати пошуку) */
-QTreeWidget, QListWidget, QTableWidget {
-    background-color: #252526;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-}
-QTreeWidget::item, QListWidget::item {
-    padding: 6px;
-    border-radius: 4px;
-}
-QTreeWidget::item:hover, QListWidget::item:hover {
-    background-color: #2a2d2e;
-}
-QTreeWidget::item:selected, QListWidget::item:selected {
-    background-color: #37373d;
-    color: white;
-    border-left: 3px solid #007acc;
-}
-
-/* Заголовки таблиць/дерев */
-QHeaderView::section {
-    background-color: #252526;
-    color: #aaaaaa;
-    border: none;
-    padding: 6px;
-    font-weight: bold;
-    border-bottom: 1px solid #333;
-}
-
-/* Кнопки (Windows 11 style) */
-QPushButton {
-    background-color: #3a3a3a;
-    color: white;
-    border: 1px solid #454545;
-    padding: 6px 16px;
-    border-radius: 6px;
-    font-weight: 500;
-}
-QPushButton:hover {
-    background-color: #454545;
-    border-color: #606060;
-}
-QPushButton:pressed {
-    background-color: #007acc;
-    border-color: #007acc;
-}
-/* Спеціальні кнопки (акцентні) */
-QPushButton[class="accent"] {
-    background-color: #007acc;
-    border: none;
-}
-QPushButton[class="accent"]:hover {
-    background-color: #0062a3;
-}
-
-/* Поля вводу */
-QLineEdit, QTextEdit, QPlainTextEdit, QComboBox {
-    background-color: #3c3c3c;
-    border: 1px solid #3c3c3c;
-    border-radius: 4px;
-    color: #e0e0e0;
-    padding: 6px;
-    selection-background-color: #264f78;
-}
-QLineEdit:focus, QTextEdit:focus, QComboBox:focus {
-    border: 1px solid #007acc;
-    background-color: #252526;
-}
-
-/* Вкладки (Tabs) */
-QTabWidget::pane {
-    border-top: 1px solid #333;
-    background-color: #1e1e1e;
-}
-QTabBar::tab {
-    background-color: #1e1e1e;
-    color: #888;
-    padding: 10px 20px;
-    border: none;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
-QTabBar::tab:selected {
-    color: white;
-    background-color: #1e1e1e;
-    border-bottom: 2px solid #007acc;
-}
-QTabBar::tab:hover {
-    background-color: #2d2d2d;
-    color: #ccc;
-}
-
-/* Прогрес бар */
-QProgressBar {
-    background-color: #252526;
-    border: none;
-    border-radius: 2px;
-    height: 6px;
-    text-align: center;
-}
-QProgressBar::chunk {
-    background-color: #007acc;
-    border-radius: 2px;
-}
-
-/* Скроллбар */
-QScrollBar:vertical {
-    border: none;
-    background: #1e1e1e;
-    width: 10px;
-    margin: 0px;
-}
-QScrollBar::handle:vertical {
-    background: #424242;
-    min-height: 20px;
-    border-radius: 5px;
-}
-QScrollBar::handle:vertical:hover {
-    background: #4f4f4f;
-}
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    height: 0px;
-}
-"""
-
-# === СВІТЛА ТЕМА (MODERN LIGHT) ===
-LIGHT_THEME = """
-/* Загальний фон */
-QMainWindow, QWidget {
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     color: #333333;
     font-family: 'Segoe UI', sans-serif;
     font-size: 14px;
 }
 
-/* Списки */
+/* 2. Таблиці та Дерева */
 QTreeWidget, QListWidget, QTableWidget {
     background-color: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
+    alternate-background-color: #f9f9f9; /* Ледь сірий для парних рядків */
+    color: #333333;
+    border: 1px solid #e0e0e0;
+    selection-background-color: #e5f3ff;
+    selection-color: #0078d4;
     outline: none;
 }
+
 QTreeWidget::item, QListWidget::item {
-    padding: 6px;
-    border-radius: 4px;
-}
-QTreeWidget::item:hover, QListWidget::item:hover {
-    background-color: #f0f0f0;
-}
-QTreeWidget::item:selected, QListWidget::item:selected {
-    background-color: #e5f3ff;
-    color: #0078d4;
-    border-left: 3px solid #0078d4;
+    height: 28px; /* Фіксована висота рядка */
+    color: #333333;
+    border: none;
 }
 
-/* Кнопки */
+QTreeWidget::item:hover, QListWidget::item:hover {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
+QTreeWidget::item:selected, QListWidget::item:selected {
+    background-color: #cce8ff; /* Світло-синій фон виділення */
+    color: #005a9e; /* Темно-синій текст */
+    border: none;
+}
+
+/* 3. Заголовки (Header) */
+QHeaderView::section {
+    background-color: #f5f5f5;
+    color: #333333;
+    padding: 6px;
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* 4. Кнопки */
 QPushButton {
     background-color: #ffffff;
-    border: 1px solid #d1d1d1;
-    border-radius: 6px;
-    color: #333;
-    padding: 6px 16px;
+    border: 1px solid #cccccc;
+    color: #333333;
+    padding: 6px 15px;
+    border-radius: 4px;
 }
 QPushButton:hover {
-    background-color: #fbfbfb;
-    border-color: #c0c0c0;
+    background-color: #f0faff;
+    border-color: #0078d4;
+    color: #0078d4;
 }
 QPushButton:pressed {
     background-color: #0078d4;
-    color: white;
-    border-color: #0078d4;
+    color: #ffffff;
 }
 
-/* Поля вводу */
-QLineEdit, QTextEdit, QComboBox {
+/* 5. Поля вводу */
+QLineEdit, QTextEdit, QPlainTextEdit, QComboBox, QSpinBox {
     background-color: #ffffff;
-    border: 1px solid #d1d1d1;
+    border: 1px solid #cccccc;
     border-radius: 4px;
-    color: #333;
-    padding: 6px;
+    color: #333333;
+    padding: 5px;
 }
-QLineEdit:focus {
+QLineEdit:focus, QTextEdit:focus {
     border: 1px solid #0078d4;
 }
 
-/* Вкладки */
+/* 6. Вкладки (Tabs) */
 QTabWidget::pane {
-    border-top: 1px solid #e0e0e0;
+    border: 1px solid #e0e0e0;
+    top: -1px;
 }
 QTabBar::tab {
-    background-color: #f3f3f3;
-    color: #666;
-    padding: 10px 20px;
-    border: none;
+    background-color: #f5f5f5;
+    color: #555555;
+    padding: 8px 20px;
+    border: 1px solid transparent;
+    border-bottom: none;
 }
 QTabBar::tab:selected {
-    background-color: #f3f3f3;
-    color: #000;
-    border-bottom: 2px solid #0078d4;
+    background-color: #ffffff;
+    color: #0078d4;
+    border: 1px solid #e0e0e0;
+    border-bottom: 1px solid #ffffff; /* Зливається з контентом */
+    font-weight: bold;
 }
 QTabBar::tab:hover {
-    background-color: #e9e9e9;
+    background-color: #eef;
 }
 
-/* Прогрес */
-QProgressBar {
-    background-color: #e0e0e0;
+/* 7. Скролбари */
+QScrollBar:vertical {
     border: none;
-    height: 6px;
-    border-radius: 2px;
+    background: #f0f0f0;
+    width: 10px;
+    margin: 0px;
 }
-QProgressBar::chunk {
-    background-color: #0078d4;
-    border-radius: 2px;
+QScrollBar::handle:vertical {
+    background: #c1c1c1;
+    min-height: 20px;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #a8a8a8;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+/* 8. ToolBar */
+QToolBar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    spacing: 5px;
 }
 """

@@ -1,4 +1,3 @@
-PyQt5>=5.15
+PyQt5
 matplotlib
-pygments
-jinja2
+numpy

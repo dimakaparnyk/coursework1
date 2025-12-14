@@ -18,16 +18,28 @@ EXTENSIONS_MAP = {
     '.html': 'HTML', '.css': 'CSS', '.sql': 'SQL', '.json': 'JSON', '.xml': 'XML'
 }
 
-# 2. Папки для ігнорування (Щоб не було 40000 файлів)
+# 2. Папки для ігнорування (Розширений список для оптимізації)
 IGNORE_DIRS = {
+    # Системні та IDE
     '.git', '.svn', '.hg', '.vs', '.idea', '.vscode',
+    
+    # Python
     '__pycache__', 'venv', '.venv', 'env', 'Lib', 'Scripts', 'site-packages',
-    'node_modules', 'bower_components',
+    
+    # JavaScript / Node.js (Найважливіше для швидкодії!)
+    'node_modules', 'bower_components', 'jspm_packages',
+    
+    # Компіляція та збірка
     'build', 'dist', 'target', 'bin', 'obj', 'debug', 'release',
-    'tmp', 'temp', 'logs', 'coverage'
+    
+    # Тимчасові файли та логи
+    'tmp', 'temp', 'logs', 'coverage',
+    
+    # Медіа та ресурси (зазвичай не містять коду)
+    'assets', 'media', 'static', 'images', 'img', 'fonts', 'videos'
 }
 
-# 3. Енциклопедія мов (ЦЬОГО НЕ ВИСТАЧАЛО)
+# 3. Енциклопедія мов
 LANGUAGE_META = {
     "Python": {
         "year": 1991, "author": "Guido van Rossum",
